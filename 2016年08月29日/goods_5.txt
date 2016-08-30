@@ -1,0 +1,112 @@
+create table categories(
+    id int auto_increment primary key  comment '分类id',
+    name varchar(20) comment '分类名字'
+)charset=utf8
+
+create table categories(
+    id SERIAL primary key  ,
+    name varchar(20)
+)
+
+
+INSERT INTO categories ( name) VALUES ('电子设备'), ('清洁用品');
+
+
+
+
+
+
+
+
+
+create table products(
+    id int auto_increment primary key comment '产品id',
+    code varchar(20) comment '产品编码',
+    name varchar(20) comment '产品名字',
+    price int comment '产品价格',
+    number int comment '产品数量',
+    category_id int comment '产品分类'
+)charset=utf8
+
+create table products(
+    id SERIAL primary key  ,
+    code varchar(20) ,
+    name varchar(20) ,
+    price int ,
+    number int ,
+    category_id int
+)
+
+INSERT INTO products (id, code, name, price, number, category_id) VALUES (NULL, '0001', '牙膏', '12', '34', '2'), (NULL, '0002', '耳机', '34', '56', '1');
+INSERT INTO products (code, name, price, number, category_id) VALUES ( '0001', '牙膏', '12', '34', '2'), ( '0002', '耳机', '34', '56', '1');
+
+
+create table orders(
+    id int auto_increment primary key comment '订单id',
+    code varchar(20) comment '订单编号',
+    product_id int comment '产品id',
+    number int comment '购买数量',
+    price int comment '成交价格',
+    time  date comment '订单时间'
+)charset=utf8
+
+create table orders(
+    id SERIAL primary key  ,
+    code varchar(20),
+    product_id int,
+    number int ,
+    price int,
+    time  date
+)
+
+INSERT INTO `test`.`orders` (`id`, `code`, `product_id`, `number`, `price`, `time`) VALUES (NULL, '20160101', '1', '3', '13', '2016-08-18'), (NULL, '20160102', '2', '4', '14', '2016-08-12');
+INSERT INTO orders (code, product_id, number, price, time) VALUES ('20160101', '1', '3', '13', '2016-08-18'), ( '20160102', '2', '4', '14', '2016-08-12');
+
+create table customers(
+    id int auto_increment primary key comment '用户id',
+    name varchar(20) not null unique comment '用户姓名',
+    password varchar(20)
+)charset=utf8
+create table customers(
+    id SERIAL primary key  ,
+    name varchar(20) not null unique ,
+    password varchar(20)
+)
+
+insert into customers(name, password) values('王菲', '123'), ('ff', '123')
+insert into customers(name, password) values('王菲', '123'), ('ff', '123')
+
+
+
+create table order_cust(
+    id int auto_increment primary key comment '用户和订单的id',
+    customer_id int not null comment '用户id',
+    order_id int not null comment '订单id'
+
+)charset=utf8
+create table order_cust(
+    id SERIAL primary key  ,
+    customer_id int not null ,
+    order_id int not null
+
+)
+
+
+INSERT INTO `test`.`order_cust` (`id`, `customer_id`, `order_id`) VALUES (NULL, '1', '1'), (NULL, '2', '2');
+INSERT INTO order_cust ( customer_id, order_id) VALUES ('1', '1'), ('2', '2');
+
+
+
+alter table order_cust convert to character set utf8
+create view customer_view as
+select name ,password from customers
+
+用户姓名,订单编号,产品名称,成交价格,购买数量,交易时间
+select customers.name as customer_name , orders.code as order_code, products.name as product_name, categories.name as category_name, orders.price as order_price , orders.number as order_number, orders.time as order_time
+from order_cust
+left join orders  on order_cust.order_id = orders.id
+left join customers on order_cust.customer_id = customers.id
+left join products on orders.product_id = products.id
+left join categories on products.category_id = categories.id
+
+
