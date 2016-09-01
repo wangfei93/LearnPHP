@@ -1,0 +1,5 @@
+create table saving(
+    id SERIAL primary key  ,
+    account varchar(20) not null ,
+    balance  int
+)
