@@ -1,0 +1,56 @@
+create table student(
+    id SERIAL primary key  ,
+    name varchar(20) ,
+    gender varchar(5),
+    jiguan varchar(20) ,
+    college_id int
+)
+create table college(
+    nam
+    name varchar(20) ,
+    address varchar(20) ,
+    phone varchar(20)
+)
+
+
+insert into student(name, gender, jiguan, college_id) values('王飞', '女', '四川泸州', '1');
+insert into student(name, gender, jiguan, college_id) values('张仕传', '男', '四川达州', '2');
+insert into student(name, gender, jiguan, college_id) values('李华', '男', '河北安阳', '3');
+insert into student(name, gender, jiguan, college_id) values('小明', '男', '安徽合肥', '3');
+insert into student(name, gender, jiguan, college_id) values('欧克', '女', '四川泸州', '3');
+insert into student(name, gender, jiguan, college_id) values('苏先生', '男', '四川达州', '2');
+insert into student(name, gender, jiguan, college_id) values('李华', '男', '河北安阳', '1');
+insert into student(name, gender, jiguan, college_id) values('发给', '男', '安徽合肥', '3');
+insert into student(name, gender, jiguan, college_id) values('品类', '男', '四川达州', '3');
+insert into student(name, gender, jiguan, college_id) values('拉面', '男', '四川达州', '2');
+insert into student(name, gender, jiguan, college_id) values('而非', '男', '四川达州', '4');
+insert into student(name, gender, jiguan, college_id) values('注册', '男', '四川达州', '3');
+insert into student(name, gender, jiguan, college_id) values('方法', '男', '四川达州', '2');
+insert into student(name, gender, jiguan, college_id) values('都是', '女', '四川泸州', '4');
+insert into student(name, gender, jiguan, college_id) values('爱疯', '女', '四川泸州', '1');
+insert into student(name, gender, jiguan, college_id) values('法案', '女', '四川泸州', '5');
+insert into student(name, gender, jiguan, college_id) values('方法', '女', '四川泸州', '2');
+insert into student(name, gender, jiguan, college_id) values('刚到', '男', '河北安阳', '5');
+insert into student(name, gender, jiguan, college_id) values('哦了', '男', '河北安阳', '4');
+insert into student(name, gender, jiguan, college_id) values('来了', '男', '河北安阳', '5');
+insert into student(name, gender, jiguan, college_id) values('表格', '男', '河北安阳', '2');
+insert into student(name, gender, jiguan, college_id) values('光棍', '女', '河北安阳', '2');
+insert into student(name, gender, jiguan, college_id) values('光棍', '女', '河北安阳', '5');
+
+
+
+insert into college(name, address, phone ) values('计算机系', '行政楼', '11112');
+insert into college(name, address, phone ) values('英语系', '科技楼', '234789');
+insert into college(name, address, phone ) values('语文系', '更夫楼', '098765');
+insert into college(name, address, phone ) values('数学系', '盘古楼', '7654332');
+insert into college(name, address, phone ) values('政治系', '更夫楼', '567890');
+insert into college(name, address, phone ) values('历史系', '孵化楼', '456789');
+insert into college(name, address, phone ) values('电子系', '科技楼', '345678');
+insert into college(name, address, phone ) values('商务系', '行政楼', '234567');
+insert into college(name, address, phone ) values('金融系', '孵化楼', '123456');
+
+begin ;
+insert into college(name, address, phone ) values('工程系', '专家楼', '12896');
+
+insert into college(name, address, phone ) values('造价系', '专业楼', '12956');
+rollback;
