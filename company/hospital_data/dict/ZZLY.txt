@@ -1,0 +1,1 @@
+a:4:{i:0;a:3:{s:4:"name";s:9:"介入科";s:4:"type";i:3;s:5:"extra";N;}i:1;a:3:{s:4:"name";s:0:"";s:4:"type";i:3;s:5:"extra";N;}i:2;a:3:{s:4:"name";s:9:"放射科";s:4:"type";i:3;s:5:"extra";N;}i:3;a:3:{s:4:"name";s:9:"门诊楼";s:4:"type";i:4;s:5:"extra";s:3:"1-2";}}
